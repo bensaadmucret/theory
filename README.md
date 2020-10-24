@@ -5,7 +5,7 @@
 -   Sortie : Tab Î  Tableau d'Entiers naturels de 1 à n éléments
 ***
 ```
--  début
+  début
 -    pour i de n jusquà 1 faire // recommence une sous-suite (a1, a2, ... , ai)
 -     pour j de 2 jusquà i faire // échange des couples non classés de la sous-suite
 -      si Tab[ j-1 ] > Tab[ j ] alors // aj-1et aj non ordonnés
@@ -15,5 +15,5 @@
 -      Fsi
 -     fpour
 -    fpour
--   Fin Tri_a_Bulles
+  Fin Tri_a_Bulles
 ```
