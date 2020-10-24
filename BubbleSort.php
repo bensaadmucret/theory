@@ -22,6 +22,63 @@
       echo $Tableau[$L].", ";
     }
     echo "<br />";
+
+    /*
+ * Tri bulle (Bubble sort)
+ * initialiser N nombres aléatoirement dans un tableau
+ * Appliquer le tri successif pour chaque nombre
+ * afficher le tableau initial puis le tableau trié
+ */
+define("LIMIT", 20);
+
+/*
+ * Initialisation du tableau avec des valeurs tirées aléatoirement
+ */
+function init_tab() {
+	$tab = array();
+	for($i=0; $i<LIMIT; $i++) {
+		$tab[$i] = rand(0, 100);
+	}
+	return $tab;
+}
+
+/*
+ * Tri bulle
+ */
+function bubble_sort($tab) {
+	for($i=0; $i<LIMIT-1; $i++) {
+		for($j=0; $j<(LIMIT-1-$i); $j++) {
+			if ($tab[$j] > $tab[$j+1] ) {
+				$temp = $tab[$j+1];
+				$tab[$j+1] = $tab[$j];
+				$tab[$j] = $temp;
+			}
+		}
+	}
+	return $tab;
+}
+
+/*
+ * Affichage d'un tableau horizontalement
+ */
+function aff_tab ($tab, $header) {
+$str = "<TABLE>";
+$lig1 = "<TR><TH>Indice</TH>";
+$lig2 = "<TR><TH>$header</TH>";
+	foreach ($tab as $cle => $val) {
+		$lig1 .= "<TD>$cle</TD>";
+		$lig2 .= "<TD>$val</TD>";
+	}
+	
+	$lig1 .= "</TR>";
+	$lig2 .= "</TR>";
+	$str .= $lig1.$lig2."</TABLE>";
+	return $str;
+}
+
+$tab = init_tab();	// Initialisation du tableau
+echo aff_tab($tab, "Initialisation");	// Affichage de ce tableau
+echo aff_tab(bubble_sort($tab), "Tri Bulle");	// Affichage du tableau trié
 ?>
 
     Algorithme Tri_a_Bulles
